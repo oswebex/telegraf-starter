@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "target": "es2020",
     "module": "commonjs",
     "outDir": "./dist",
