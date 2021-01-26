@@ -3,8 +3,13 @@ import middlewares from "./middlewares"
 import controllers from "./controllers"
 
 const token = process.env.BOT_TOKEN!
-
-const bot = new Telegraf(token)
+const options = {
+  telegram: {
+    apiRoot: process.env.BOT_API
+  },
+  fetchTimeout: process.env.BOT_FETCH_TIMEOUT
+}
+const bot = new Telegraf(token, options)
 
 bot.configure(middlewares)
 
