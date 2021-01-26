@@ -1,6 +1,8 @@
 import { MyBot } from "../declarations";
-import testController from "./test.controller";
+import channelController from "./channel.controller";
+import privateController from "./private.controller";
 
 export default function (bot: MyBot) {
-  bot.configure(testController)
+  bot.configure(privateController)
+  bot.configure(channelController)
 }

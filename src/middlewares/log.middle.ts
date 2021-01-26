@@ -1,11 +1,11 @@
 import { MyContext } from "../declarations";
 
 export default () => async function (ctx: MyContext, next: any) {
-  const start = +new Date();
+  const start = +new Date()
 
-  await next();
+  await next()
 
-  const ms = +new Date() - start;
+  const ms = +new Date() - start
 
-  console.log('%sms', ms);
+  console.log('%s ms', ms)
 }
