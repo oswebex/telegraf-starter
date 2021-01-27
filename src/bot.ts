@@ -1,3 +1,4 @@
+import { MyContext } from "./declarations"
 import { Telegraf } from "./telegraf"
 import middlewares from "./middlewares"
 import controllers from "./controllers"
@@ -9,7 +10,7 @@ const options = {
   },
   fetchTimeout: process.env.BOT_FETCH_TIMEOUT
 }
-const bot = new Telegraf(token, options)
+const bot = new Telegraf<MyContext>(token, options)
 
 bot.configure(middlewares)
 
