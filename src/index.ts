@@ -1,18 +1,24 @@
-import bot from "./bot";
+import logger from "./logger"
+import bot from "./bot"
 
-(async function() {
+async function main() {
   try {
     if (process.env.BOT_SKIP_UPDATES) {
       void await bot.telegram.callApi('getUpdates', { offset: -1 })
+      logger.info('The updates have been skipped')
     }
     void await bot.launch()
-    console.info('The bot is launched')
+    logger.info('The bot is launched')
     // Enable graceful stop
     process.once('SIGINT', () => bot.stop('SIGINT'))
     process.once('SIGTERM', () => bot.stop('SIGTERM'))
   } catch (err) {
-    console.error(err)
+    logger.error(err)
   }
-}())
+}
 
-process.on('unhandledRejection', (reason, p) => console.error('%j %j', p, reason))
+main();
+
+process.on('unhandledRejection', (reason, p) =>
+  logger.error('Unhandled Rejection at: Promise ', p, reason)
+)

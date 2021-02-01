@@ -1,2 +1,2 @@
-# telegraf-ts-starter
-An Telegraf TS Starter kit
+# telegraf-starter
+Telegraf Starter kit

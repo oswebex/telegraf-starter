@@ -1,5 +1,6 @@
-import { MyContext } from "./declarations"
+import { MyBot, MyContext } from "./declarations"
 import { Telegraf } from "./telegraf"
+import logger from "./logger"
 import middlewares from "./middlewares"
 import controllers from "./controllers"
 
@@ -7,17 +8,17 @@ const token = process.env.BOT_TOKEN!
 const options = {
   telegram: {
     apiRoot: process.env.BOT_API
-  },
-  fetchTimeout: process.env.BOT_FETCH_TIMEOUT
+  }
 }
-const bot = new Telegraf<MyContext>(token, options)
+const bot: MyBot = new Telegraf(token, options)
+bot.context.logger = logger
 
 bot.configure(middlewares)
 
 bot.configure(controllers)
 
-bot.catch((err, ctx) => {
-  console.error(`Ooops, encountered an error for ${ctx.updateType}`, err)
+bot.catch((err: unknown, ctx: MyContext) => {
+  ctx.logger.error(`Ooops, encountered an error for ${ctx.updateType}`, err)
 })
 
-export default bot;
+export default bot

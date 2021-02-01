@@ -1,8 +1,10 @@
 import { Context } from "telegraf";
+import { Logger } from "winston";
 import { Telegraf } from "./telegraf";
 
 interface IBotContext extends Context {
-  state: object;
+  state: object
+  logger: Logger
 }
 
 export type MyContext = IBotContext;

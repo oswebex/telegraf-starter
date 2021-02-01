@@ -1,7 +1,7 @@
 {
-  "name": "telegraf-ts-starter",
+  "name": "telegraf-starter",
   "version": "0.0.1",
-  "description": "An Telegraf TS Starter kit",
+  "description": "Telegraf TS Starter kit",
   "scripts": {
     "dev": "ts-node-dev -r dotenv/config src/",
     "start": "node dist/",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ioscars/telegraf-ts-starter.git"
+    "url": "git+https://github.com/ioscars/telegraf-starter.git"
   },
   "keywords": [
     "telegraf",
@@ -20,11 +20,12 @@
   "author": "oscars@live.ru",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ioscars/telegraf-ts-starter/issues"
+    "url": "https://github.com/ioscars/telegraf-starter/issues"
   },
-  "homepage": "https://github.com/ioscars/telegraf-ts-starter#readme",
+  "homepage": "https://github.com/ioscars/telegraf-starter#readme",
   "dependencies": {
-    "telegraf": "^4.0.1"
+    "telegraf": "^4.0.1",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
