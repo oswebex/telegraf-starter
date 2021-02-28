@@ -1,11 +1,6 @@
-import { Context } from "telegraf";
-import { Logger } from "winston";
-import { Telegraf } from "./telegraf";
-
-interface IBotContext extends Context {
+import { Context } from "telegraf"
+import { Telegraf } from "./telegraf"
+export interface MyContext extends Context {
   state: object
-  logger: Logger
 }
-
-export type MyContext = IBotContext;
-export type MyBot = Telegraf<MyContext>;
+export type MyBot = Telegraf<MyContext>

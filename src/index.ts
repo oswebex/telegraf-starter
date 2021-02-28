@@ -1,14 +1,12 @@
-import logger from "./logger"
 import bot from "./bot"
+import config from "./config"
+
+const logger = bot.context.logger!
 
 async function main() {
   try {
-    if (process.env.BOT_SKIP_UPDATES) {
-      void await bot.telegram.callApi('getUpdates', { offset: -1 })
-      logger.info('The updates have been skipped')
-    }
-    void await bot.launch()
-    logger.info('The bot is launched')
+    void await bot.launch(config.launch as any)
+    logger.info('The bot is working')
     // Enable graceful stop
     process.once('SIGINT', () => bot.stop('SIGINT'))
     process.once('SIGTERM', () => bot.stop('SIGTERM'))

@@ -1,17 +1,13 @@
 import { MyBot, MyContext } from "./declarations"
 import { Telegraf } from "./telegraf"
-import logger from "./logger"
+import config from "./config"
+import services from "./services"
 import middlewares from "./middlewares"
 import controllers from "./controllers"
 
-const token = process.env.BOT_TOKEN!
-const options = {
-  telegram: {
-    apiRoot: process.env.BOT_API
-  }
-}
-const bot: MyBot = new Telegraf(token, options)
-bot.context.logger = logger
+const bot: MyBot = new Telegraf(config.token, config.telegraf)
+
+bot.configure(services)
 
 bot.configure(middlewares)
 
