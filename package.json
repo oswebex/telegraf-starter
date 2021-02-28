@@ -4,6 +4,8 @@
   "description": "Telegraf TS Starter kit",
   "scripts": {
     "dev": "ts-node-dev -r dotenv/config src/",
+    "dev-task": "ts-node-dev -r dotenv/config src/tasks/",
+    "task": "node dist/tasks/",
     "start": "node dist/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "shx rm -rf dist/ && tsc"
