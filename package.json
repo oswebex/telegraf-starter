@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/ioscars/telegraf-starter#readme",
   "dependencies": {
-    "telegraf": "^4.3.0",
+    "telegraf": "^3.38.0",
     "upgrade": "^1.1.0",
     "winston": "^3.3.3"
   },
