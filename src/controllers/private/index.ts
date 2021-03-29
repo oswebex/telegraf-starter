@@ -8,5 +8,5 @@ export default function (bot: MyBot) {
 
   pm.help(ctx => ctx.reply('pm help'))
 
-  bot.use(Controller.chatType('private', pm))
+  bot.use(Controller.chatType('private', pm, () => Promise.resolve()))
 }

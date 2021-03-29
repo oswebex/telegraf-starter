@@ -12,5 +12,5 @@ export default function (bot: MyBot) {
 
   channel.help(ctx => ctx.reply('ch help'))
 
-  bot.use(Controller.chatType('channel', channel))
+  bot.use(Controller.chatType('channel', channel, () => Promise.resolve()))
 }
